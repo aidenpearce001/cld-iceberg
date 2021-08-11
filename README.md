@@ -1,4 +1,4 @@
-# Phishing-detection-ML
+# ICEBERG
 [![Contributors][contributors-shield]][contributors-url]
 [![Forks][forks-shield]][forks-url]
 [![Stargazers][stars-shield]][stars-url]
@@ -111,7 +111,7 @@ Distributed under the MIT License. See `LICENSE` for more information.
 
 ### Contributors ✨
 
-Thanks goes to these wonderful people 
+Thanks goes to these wonderful Penguins
 
 <table>
   <tr>

@@ -3,3 +3,6 @@ Generate Dataset/.env
 src/model/weights/
 __pycache__
 src/feedback/*.json
+mongo/configdb
+mongo/db
+mongo/entrypoint

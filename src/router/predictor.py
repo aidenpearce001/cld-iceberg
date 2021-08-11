@@ -18,7 +18,7 @@ max_words = 20000
 # model = ConvModel(num_chars, embedding_vector_length, maxlen)
 # model.built = True
 # model.load_weights(model_pre)
-model = RandomForest("model/ckpt/rf_data_balance.pkl")
+model = RandomForest("model/weights/rf_data_balance.pkl")
 
 features =  {
     'Speical_Char':'Number of Speicial Character in URL like ~,!,@,#,$,%,^,&,*,...',

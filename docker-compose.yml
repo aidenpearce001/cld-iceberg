@@ -8,9 +8,9 @@ services:
             - MONGO_INITDB_ROOT_USERNAME=cld
             - MONGO_INITDB_ROOT_PASSWORD=cld@2021
         volumes:
-            - ./mongo-entrypoint:/docker-entrypoint-initdb.d
-            - mongodb:/data/db
-            - mongoconfig:/data/configdb
+            - ./mongo/entrypoint:/docker-entrypoint-initdb.d
+            - ./mongo/db:/data/db
+            - ./mongo/configdb:/data/configdb
         ports:
             - "27017:27017"
     
@@ -22,7 +22,3 @@ services:
             - cld-db
         ports:
             - "4500:4500"
-
-volumes:
-    mongodb:
-    mongoconfig:

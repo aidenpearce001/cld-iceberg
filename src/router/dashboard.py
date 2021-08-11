@@ -104,7 +104,6 @@ def main():
     colors = hex_color()
 
     print("TOP", top_country)
-    top_country = []
     
     if len(top_country) > 0: # If found at least an item
       start = 0

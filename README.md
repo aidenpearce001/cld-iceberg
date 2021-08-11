@@ -54,6 +54,7 @@
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
+<br>
 [![cld][cld-dashhboard]](https://example.com)
 
 ### Built With

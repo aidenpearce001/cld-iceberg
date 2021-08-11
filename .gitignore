@@ -1,5 +1,5 @@
 .env
 Generate Dataset/.env
-src/model/ckpt/
+src/model/weights/
 __pycache__
 src/feedback/*.json

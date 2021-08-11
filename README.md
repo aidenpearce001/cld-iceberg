@@ -31,63 +31,99 @@
   <ol>
     <li>
       <a href="#about-the-project">About The Project</a>
-      <ul>
-        <li><a href="#built-with">Built With</a></li>
-      </ul>
     </li>
     <li>
       <a href="#getting-started">Getting Started</a>
       <ul>
         <li><a href="#prerequisites">Prerequisites</a></li>
         <li><a href="#installation">Installation</a></li>
+        <ul>
+          <li><a href="#installation-docker">Install with docker</a></li>
+          <li><a href="#installation-python">Install with python</a></li>
+        </ul>
       </ul>
     </li>
     <li><a href="#interface">Interface</a></li>
-    <li><a href="#model-deep-learning">Model Deep Learning</a></li>
-    <li><a href="#license">License</a></li>
-    <li><a href="#research-on-going">On Going Research</a></li>
+    <li><a href="#model-deep-learning">Phishing Detection Model</a></li>
     <li><a href="#source-for-collecting-data">Dataset</a></li>
     <li><a href="#references">References</a></li>
+    <li><a href="#license">License</a></li>
     <li><a href="#contributors-">Contributor</a></li>
   </ol>
 </details>
 
 <!-- ABOUT THE PROJECT -->
 ## About The Project
-<br>
-[![cld][cld-dashhboard]](https://example.com)
+<br/>
 
-### Built With
--   Python **3.7.x** | **3.8.x**
+## Getting Started
+<br/>
 
 ### Prerequisites
-* python
-  ```sh
-  pip install -r requirement.txt
-  ```
+-   Python **3.7.x** | **3.8.x**
+-   docker **1.25.4**
+-   docker-compose **1.25.4**
+
 ### Installation
 
-### Interface
-* HomePage : /
-![cld][cld-check]
+#### Installation with Docker
+##### Setup the environment file
+```bash
+mv .env.example .env
+```
+Make sure the variable `MONGO` is your MongoDB Connection String
 
-* Dashboard : /dashboard
-![cld][cld-dashhboard]
+##### Download the model weight
+Download the model weights <a href="https://drive.google.com/file/d/1RJHlJIvucqEdEhK_Go4hicbM-0Br3WmF/view?usp=sharing">here</a> and put it inside `src/model/weights`
+The structure should be as following
+```
+src
+├── model/
+    ├── weights
+        ├── rf_data_balance.pkl
+```
+
+##### Run the service
+```bash
+docker-compose up
+```
+
+#### Installation with Python
+
+##### Setup mongodb
+Set up a local MongoDB Service, add the connection string to `.env` file. See the template at `.env.example`
+
+##### Install the required packages
+```
+cd src && pip install -r requirement.txt
+```
+
+##### Download the model weight
+Download the model weights <a href="https://drive.google.com/file/d/1RJHlJIvucqEdEhK_Go4hicbM-0Br3WmF/view?usp=sharing">here</a> and put it inside `src/model/weights`
+The structure should be as following
+```
+src
+├── model/
+    ├── weights
+        ├── rf_data_balance.pkl
+```
+
+##### Run the server
+Run the server with the following command
+```
+python app.py
+```
+The server will be up and running on `http://localhost:4500`
+
+
+### Interface
+* `/` Home page of the web interface. Use this to check phishing urls
+* `/dashboard` The dashboard with visualizations of the requested urls
 
 ### Model Deep Learning
-<ul>
-<li><h4> Get weights from https://drive.google.com/file/d/1RJHlJIvucqEdEhK_Go4hicbM-0Br3WmF/view?usp=sharing </h4></li>
-</ul>
 
-### License
-Distributed under the MIT License. See `LICENSE` for more information.
-
-### Research (On going)
-- https://www.academia.edu/10918579/A_WEB_CONTENT_ANALYTICS_ARCHITECTURE_FOR_MALICIOUS_JAVASCRIPT_DETECTION
-- https://www.sciencedirect.com/science/article/pii/S1568494619305022
-- https://www.just.edu.jo/~munzer/MyPubs/MALURLs_ITA2011.pdf
-- https://www.researchgate.net/publication/228906286_Visual-Similarity-Based_Phishing_Detection
-- https://www.mdpi.com/2073-8994/12/10/1681/pdf
+* `CNN`: 
+* `Random Forest`: https://drive.google.com/file/d/1RJHlJIvucqEdEhK_Go4hicbM-0Br3WmF/view?usp=sharing
 
 ### Source for collecting data
 #### Blacklist
@@ -109,6 +145,9 @@ Distributed under the MIT License. See `LICENSE` for more information.
 - https://www.sciencedirect.com/science/article/pii/S1877050920310966
 - https://www.atlantis-press.com/proceedings/iccsee-13/4487
 - https://repository.asu.edu/attachments/189603/content/Namasivayam_asu_0010N_17146.pdf
+
+### License
+Distributed under the MIT License. See `LICENSE` for more information.
 
 ### Contributors ✨
 

@@ -11,11 +11,13 @@ class RandomForest():
 
     def predict(self, url):
         url_feature_vector = self.extractor(url)
-        
+
         if url_feature_vector is not None:
-            vector = np.array(url_feature_vector[:-3])
+            url_feature_vector = list(url_feature_vector)
+            feature_vector = [feature[1] for feature in url_feature_vector]
+            vector = np.array(feature_vector[:-3])
             prediction = self.classifier.predict(vector.reshape(1, -1))
-            
-            return prediction
+
+            return prediction, url_feature_vector
         else:
-            return None
+            return None, None

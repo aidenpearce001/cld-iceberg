@@ -1,6 +1,6 @@
 .env
-Generate Dataset/.env
-src/model/weights/
+*.pkl
+*.pth
 __pycache__
 src/feedback/*.json
 mongo/configdb

@@ -52,12 +52,11 @@
   </ol>
 </details>
 
-<!-- ABOUT THE PROJECT -->
 ## About The Project
-<br/>
+This repository is a part of Chongluadao project, a project that aims to secure the internet from phishing and malicious websites.
+This repository contains the interface for the phishing detection machine learning model, which includes  a dashboard and a model inference API.
 
 ## Getting Started
-<br/>
 
 ### Prerequisites
 -   Python **3.7.x** | **3.8.x**

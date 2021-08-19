@@ -1,7 +1,7 @@
 from flask import Blueprint, request, jsonify, render_template
 import time
 import os
-from model import RandomForest, ConvModel
+from models import RandomForest, ConvModel
 from db import db, add_phishing_record
 from const import FEATURES
 

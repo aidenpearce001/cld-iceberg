@@ -1,14 +1,15 @@
 from flask import Blueprint, request, jsonify, render_template
 import time
 import os
-from models import RandomForest, ConvModel
+from models import build_model
 from db import db, add_phishing_record
 from const import FEATURES
+
 
 os.environ["CUDA_VISIBLE_DEVICES"] = "-1"
 
 
-model = RandomForest("model/weights/rf_data_balance.pkl")
+model = build_model("cnn_char")
 
 predictor = Blueprint('predictor', __name__)
 
@@ -31,24 +32,25 @@ def predict():
     incoming = request.get_json()
     url = incoming["url"]
 
+    print(url)
     if url == '':
         return jsonify({'message': 'Cannot connect to website. Your url might be incorrect, or the website is down'})
 
     data["predictions"] = []
-    prediction, url_feature_vector = model.predict(url)
+    score, *optional_param = model.predict(url)
 
-    if prediction is not None:
-        prediction = prediction[0]
-        print(url_feature_vector)
-        phishing_record = {
-            item[0]: item[1]
-            for item in url_feature_vector
-        }
-        phishing_record["url"] = url
-        phishing_record["prediction"] = int(prediction)
-        add_phishing_record(phishing_record)
+    if score is not None:
+        prediction = score[0]
+        # phishing_record = {
+        #     item[0]: item[1]
+        #     for item in optional_param
+        # }
+        # phishing_record["url"] = url
+        # phishing_record["prediction"] = int(prediction)
+        # add_phishing_record(phishing_record)
     else:
         return jsonify(data)
+    
     end = time.time() - start
 
     if prediction > 0.5:

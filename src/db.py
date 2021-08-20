@@ -7,8 +7,6 @@ load_dotenv()
 
 MONGODB = os.getenv('MONGODB')
 
-print("MONGO PATH", MONGODB)
-
 client = pymongo.MongoClient(MONGODB)
 db = client['chongluadao']
 

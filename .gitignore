@@ -1,6 +1,7 @@
 .env
 *.pkl
 *.pth
+*.ckpt
 __pycache__
 src/feedback/*.json
 mongo/configdb

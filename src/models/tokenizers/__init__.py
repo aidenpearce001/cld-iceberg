@@ -1,0 +1,1 @@
+from .cnn_char_tokenizer import charTokenizer
